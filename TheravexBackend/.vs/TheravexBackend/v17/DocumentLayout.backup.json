@@ -1,0 +1,326 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\controllers\\facturescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\controllers\\facturescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\dtos\\createfacturelignedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\dtos\\createfacturelignedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\dtos\\createuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\dtos\\createuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\models\\tva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\models\\tva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\controllers\\stockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\controllers\\stockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\controllers\\articlescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\controllers\\articlescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\dtos\\changeuserroledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\dtos\\changeuserroledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\models\\stockmouvement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\models\\stockmouvement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|c:\\theravex\\theravexbackend\\theravexbackend\\theravexbackend\\migrations\\20251215145113_initidentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3D1FA51-ABD8-4313-936C-7ECA492CE637}|TheravexBackend\\TheravexBackend.csproj|solutionrelative:theravexbackend\\migrations\\20251215145113_initidentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreateUserDto.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\DTOs\\CreateUserDto.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\DTOs\\CreateUserDto.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\DTOs\\CreateUserDto.cs",
+              "RelativeToolTip": "TheravexBackend\\DTOs\\CreateUserDto.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwAkAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:57:15.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateFactureLigneDto.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\DTOs\\CreateFactureLigneDto.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\DTOs\\CreateFactureLigneDto.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\DTOs\\CreateFactureLigneDto.cs",
+              "RelativeToolTip": "TheravexBackend\\DTOs\\CreateFactureLigneDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:52:06.056Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FacturesController.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Controllers\\FacturesController.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\Controllers\\FacturesController.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Controllers\\FacturesController.cs",
+              "RelativeToolTip": "TheravexBackend\\Controllers\\FacturesController.cs",
+              "ViewState": "AgIAANoAAAAAAAAAAAAAACYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:50:06.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Tva.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Models\\Tva.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\Models\\Tva.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Models\\Tva.cs",
+              "RelativeToolTip": "TheravexBackend\\Models\\Tva.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:54:35.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StockController.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Controllers\\StockController.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\Controllers\\StockController.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Controllers\\StockController.cs",
+              "RelativeToolTip": "TheravexBackend\\Controllers\\StockController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:49:35.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "TheravexBackend\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:20:11.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ClientsController.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Controllers\\ClientsController.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\Controllers\\ClientsController.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Controllers\\ClientsController.cs",
+              "RelativeToolTip": "TheravexBackend\\Controllers\\ClientsController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAqwB8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:48:57.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ChangeUserRoleDto.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\DTOs\\ChangeUserRoleDto.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\DTOs\\ChangeUserRoleDto.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\DTOs\\ChangeUserRoleDto.cs",
+              "RelativeToolTip": "TheravexBackend\\DTOs\\ChangeUserRoleDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:46:16.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "TheravexBackend\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:12:38.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "TheravexBackend\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:10:55.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ArticlesController.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Controllers\\ArticlesController.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\Controllers\\ArticlesController.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Controllers\\ArticlesController.cs",
+              "RelativeToolTip": "TheravexBackend\\Controllers\\ArticlesController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAowBoAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:15:12.572Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "StockMouvement.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Models\\StockMouvement.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\Models\\StockMouvement.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Models\\StockMouvement.cs",
+              "RelativeToolTip": "TheravexBackend\\Models\\StockMouvement.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:17:29.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Models\\Client.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\Models\\Client.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Models\\Client.cs",
+              "RelativeToolTip": "TheravexBackend\\Models\\Client.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:16:57.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RegisterDto.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\DTOs\\RegisterDto.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\DTOs\\RegisterDto.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\DTOs\\RegisterDto.cs",
+              "RelativeToolTip": "TheravexBackend\\DTOs\\RegisterDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:09:41.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\DTOs\\LoginDto.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\DTOs\\LoginDto.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\DTOs\\LoginDto.cs",
+              "RelativeToolTip": "TheravexBackend\\DTOs\\LoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:09:25.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Program.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\Program.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Program.cs",
+              "RelativeToolTip": "TheravexBackend\\Program.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAgwC4AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:06:24.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\appsettings.json",
+              "RelativeDocumentMoniker": "TheravexBackend\\appsettings.json",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\appsettings.json",
+              "RelativeToolTip": "TheravexBackend\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-15T15:05:57.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "20251215145113_InitIdentity.cs",
+              "DocumentMoniker": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Migrations\\20251215145113_InitIdentity.cs",
+              "RelativeDocumentMoniker": "TheravexBackend\\Migrations\\20251215145113_InitIdentity.cs",
+              "ToolTip": "C:\\Theravex\\TheraVexBackend\\TheravexBackend\\TheravexBackend\\Migrations\\20251215145113_InitIdentity.cs",
+              "RelativeToolTip": "TheravexBackend\\Migrations\\20251215145113_InitIdentity.cs",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T14:51:14.895Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
