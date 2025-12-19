@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using DinkToPdf;
+using DinkToPdf.Contracts;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.RenderTree;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QuestPDF.Fluent;
@@ -7,6 +10,7 @@ using QuestPDF.Infrastructure;
 using TheravexBackend.Data;
 using TheravexBackend.DTOs;
 using TheravexBackend.Models;
+using TheravexBackend.Services;
 
 [ApiController]
 [Route("api/factures")]
@@ -14,10 +18,14 @@ using TheravexBackend.Models;
 public class FacturesController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
+    private readonly IRazorViewToStringRenderer _renderer;
+    private readonly IConverter _converter;
 
-    public FacturesController(ApplicationDbContext context)
+    public FacturesController(ApplicationDbContext context, IRazorViewToStringRenderer renderer, IConverter converter)
     {
         _context = context;
+        _renderer = renderer;
+        _converter = converter;
     }
 
     // ---------------- CREATE FACTURE ----------------
@@ -25,13 +33,15 @@ public class FacturesController : ControllerBase
     public async Task<IActionResult> Create(FacturePdfDto dto)
     {
         using var transaction = await _context.Database.BeginTransactionAsync();
-
+        var lastDocument = _context.Factures.Where(d => d.TypeDocument == dto.TypeDocument).OrderByDescending(f=>f.Numero).FirstOrDefault();
+        string numDoc = (lastDocument.Numero++).ToString("00000");
         try
         {
             var facture = new Facture
             {
                 ClientId = int.Parse(dto.Client),
-                Numero = $"FAC-{DateTime.Now:yyyyMMddHHmmss}"
+                Numero = int.Parse(numDoc),
+                FullNumber = $"{dto.TypeDocument}-{numDoc}-{DateTime.Now:yyyyMMddHHmmss}"
             };
 
             decimal totalHT = 0, totalTVA = 0;
@@ -44,7 +54,7 @@ public class FacturesController : ControllerBase
                 if (article == null || article.Stock < l.Quantite)
                     throw new Exception($"Stock insuffisant pour {int.Parse(l.Article)}");
 
-                decimal prix = l.PrixUnitaire ?? article.PrixVente;
+                decimal prix = l.PrixUnitaire != 0 ? l.PrixUnitaire : article.PrixVente;
                 decimal ligneHT = l.Quantite * prix * (1 - l.Remise / 100);
                 decimal ligneTVA = ligneHT * (article.Tva.Taux / 100);
 
@@ -93,15 +103,12 @@ public class FacturesController : ControllerBase
             .ThenInclude(l => l.Article)
             .FirstOrDefaultAsync(f => f.Id == id);
 
-        if (facture == null || facture.Statut == StatutFacture.Annulee)
-            return BadRequest();
 
         foreach (var l in facture.Lignes)
         {
             l.Article.Stock += l.Quantite;
         }
 
-        facture.Statut = StatutFacture.Annulee;
         await _context.SaveChangesAsync();
 
         return Ok("Facture annulée (avoir généré)");
@@ -131,32 +138,88 @@ public class FacturesController : ControllerBase
             .ThenInclude(a => a.Tva)
             .FirstOrDefaultAsync(f => f.Id == id);
 
-        if (facture == null) return NotFound();
-
-        // Préparer DTO PDF
-        var pdfDto = new FacturePdfDto
+        List<FactureLigneVM> factureLigneVMs = new List<FactureLigneVM>();
+        foreach(var item in facture.Lignes)
         {
-            Numero = facture.Numero,
-            Date = facture.Date,
-            Client = facture.Client.Nom,
-            TotalHT = facture.Total,
-            TotalTVA = facture.t,
-            TotalTTC = facture.TotalTTC,
-            Lignes = facture.Lignes.Select(l => new FacturePdfLigneDto
+            var article = await _context.Articles
+                .FirstOrDefaultAsync(a => a.Id == item.ArticleId);
+            factureLigneVMs.Add(new FactureLigneVM 
             {
-                Article = l.Article.Nom,
-                Quantite = l.Quantite,
-                PrixUnitaire = l.PrixUnitaire,
-                TotalHT = l.TotalHT,
-                TVA = l.MontantTva,
-                TotalTTC = l.TotalTTC
-            }).ToList()
+                Designation = article.Nom,
+                PUHT = item.PrixUnitaire,
+                Qte = item.Quantite,
+                Reference = article.Code,
+                TotalTTC = item.TotalTTC,
+                TVA = (int)item.TauxTva
+
+            });
+        }
+
+        FactureViewModel fvm = new FactureViewModel 
+        {
+            ClientTel = facture.Client.ToString(),
+            Date = DateTime.Now,
+            Lignes = factureLigneVMs,
+            
         };
 
-        // Génération PDF via QuestPDF
-        var pdfBytes = GeneratePdf(pdfDto);
+        //if (facture == null) return NotFound();
 
-        return File(pdfBytes, "application/pdf", $"{facture.Numero}.pdf");
+        //// Préparer DTO PDF
+        //var pdfDto = new FacturePdfDto
+        //{
+        //    Numero = facture.Numero,
+        //    Date = facture.Date,
+        //    Client = facture.Client.Nom,
+        //    TotalHT = facture.Total,
+        //    TotalTVA = facture.TotalTVA,
+        //    TotalTTC = facture.TotalTTC,
+        //    Lignes = facture.Lignes.Select(l => new FacturePdfLigneDto
+        //    {
+        //        Article = l.Article.Nom,
+        //        Quantite = l.Quantite,
+        //        PrixUnitaire = l.PrixUnitaire,
+        //        TotalHT = l.TotalHT,
+        //        TVA = l.MontantTva,
+        //        TotalTTC = l.TotalTTC
+        //    }).ToList()
+        //};
+
+        //// Génération PDF via QuestPDF
+        //var pdfBytes = GeneratePdf(pdfDto);
+
+        //return File(pdfBytes, "application/pdf", $"{facture.Numero}.pdf");
+
+        var html = await _renderer.RenderViewToStringAsync("Facture", fvm);
+
+        var pdf = new HtmlToPdfDocument()
+        {
+            GlobalSettings = {
+                PaperSize = PaperKind.A4,
+                Orientation = Orientation.Portrait,
+                Margins = new MarginSettings { Top = 10 }
+            },
+            Objects = {
+                new ObjectSettings {
+                    HtmlContent = html,
+                    WebSettings = {
+                        DefaultEncoding = "utf-8"
+                    }
+                }
+            }
+        };
+
+        var file = _converter.Convert(pdf);
+
+        // Save generated PDF to disk (project content root / GeneratedPdfs)
+        string fileName = $"Facture_{facture.FullNumber}.pdf";
+        string saveDir = Path.Combine(Directory.GetCurrentDirectory(), "GeneratedPdfs");
+        Directory.CreateDirectory(saveDir);
+        string fullPath = Path.Combine(saveDir, fileName);
+        await System.IO.File.WriteAllBytesAsync(fullPath, file);
+
+
+        return File(file, "application/pdf", $"Facture_{facture.FullNumber}.pdf");
     }
 
     // ---------------- Méthode Génération PDF ----------------

@@ -1,10 +1,13 @@
-﻿namespace TheravexBackend.Models
+﻿using System.Text.Json.Serialization;
+
+namespace TheravexBackend.Models
 {
     public class FactureLigne
     {
         public int Id { get; set; }
 
         public int FactureId { get; set; }
+        [JsonIgnore]
         public Facture Facture { get; set; } = null!;
 
         public int ArticleId { get; set; }

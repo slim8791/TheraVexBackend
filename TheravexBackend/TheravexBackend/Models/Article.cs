@@ -11,6 +11,6 @@
 
         // 🔗 TVA
         public int TvaId { get; set; }
-        public Tva Tva { get; set; } = null!;
+        public Tva? Tva { get; set; } = null!;
     }
 }
