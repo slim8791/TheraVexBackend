@@ -28,6 +28,7 @@
     {
         BL,
         FCT,
-        BS
+        BS,
+        Avoir
     }
 }

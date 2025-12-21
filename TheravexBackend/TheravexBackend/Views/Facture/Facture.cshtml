@@ -1,38 +1,85 @@
 ﻿@using TheravexBackend.Models
+@using TheravexBackend.DTOs
 @model FactureViewModel
 
-<div class="invoice-container" style="font-family: sans-serif; padding: 20px; color: #333;">
-    <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #000; padding-bottom: 10px;">
-        <div>
-            <h2 style="margin: 0;">LE TRIO MEDICAL</h2> <p style="margin: 2px 0;">VENTE MATERIEL PARAMEDICAL ET PARAPHARMACIE</p> <small>
-                Route Gremda KM2 en face complexe Syphax Médical <br /> Tél: 31 501 509 / 25 728 418
-            </small>
+<div>
+
+<div class="invoice-container" style="position: relative; font-family: sans-serif; padding: 20px; padding-bottom: 180px; color: #333;">
+     <!-- Header : logo agrandi + alignement en haut pour supprimer l'espace rouge -->
+    <div style="display: flex; align-items: flex-start; border-bottom: 2px solid #000; padding-bottom: 6px;">
+        <!-- Left spacer garde tout à droite -->
+        <div style="flex: 1;"></div>
+
+        <!-- Colonne droite : logo + titre (en haut), puis MF/RC juste en dessous, tous alignés à droite -->
+        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+            <div style="display: flex; align-items: flex-start; justify-content: flex-end; gap: 8px;">
+                <img src="@(Url.Content("Images/logo.png"))" alt="Theravex logo" style="height:64px; width:auto; display:block; margin:0;" />
+                <h2 style="margin: 8px 0 0 0; line-height:1;">LABORATOIRES THERAVEX</h2>
+                <p style="margin: 8px 10px 0 0; line-height:1;"><strong>MF:</strong> xxxxxxx/X/X/X/xxx</p>
+                <p style="margin: 8px 10px 0 0; line-height:1;"><strong>RC:</strong> xxxxxxxxxxx</p>
+                <p style="margin: 8px 10px 0 0; line-height:1;"><strong>Adresse:</strong> xxxxxxxxxxxxxxxxxxxxxxx</p>
+                <p style="margin: 8px 10px 0 0; line-height:1;"><strong>Téléphone:</strong> 99999999</p>
+            </div>
+
+        @*     <div style="text-align: right; margin-top: 0;">
+                
+            </div> *@
         </div>
-        <div style="text-align: right;">
-            <img src="@(Url.Content("~/Images/logo.png"))" alt="Theravex logo" style="height:64px; width:auto; display:block; margin:0 0 8px 0;" />
-            <p><strong>MF:</strong> 1557405/R/B/M/000</p> <p><strong>RC:</strong> B0891182018</p>
-        </div>
+
+      @*   <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table> *@
     </div>
+
 
     <div style="margin-top: 20px; display: flex; justify-content: space-between;">
         <div>
-            <h3 style="margin: 0;">FACTURE N° : @Model.Numero</h3> <p>Date : @Model.Date.ToString("dd/MM/yyyy")</p>
+            @if (Model != null && Model.TypeDocument == TypeDocument.BL)
+            {
+                <h3 style="margin: 0;">BON DE LIVRAISON N° : @Model.Numero</h3> <p>Date : @Model.Date.ToString("dd/MM/yyyy")</p>
+            }
+            @if (Model != null && Model.TypeDocument == TypeDocument.FCT)
+            {
+                <h3 style="margin: 0;">FACTURE N° : @Model.Numero</h3> <p>Date : @Model.Date.ToString("dd/MM/yyyy")</p>
+            }
+            @if (Model != null && Model.TypeDocument == TypeDocument.BS)
+            {
+                <h3 style="margin: 0;">BON DE SORTIE N° : @Model.Numero</h3> <p>Date : @Model.Date.ToString("dd/MM/yyyy")</p>
+            }
+            @if (Model != null && Model.TypeDocument == TypeDocument.Avoir)
+            {
+                <h3 style="margin: 0;">Avoir N° : @Model.Numero</h3> <p>Date : @Model.Date.ToString("dd/MM/yyyy")</p>
+            }
+            
         </div>
         <div style="border: 1px solid #ccc; padding: 10px; min-width: 250px;">
             <strong>Client :</strong> @Model.ClientNom <br /> <strong>Adresse :</strong> @Model.ClientAdresse <br />
-            <strong>MF :</strong> @Model.ClientMF
+            <strong>MF :</strong> @Model.ClientMF<br />
+            <strong>Téléphone :</strong> @Model.ClientTel
         </div>
     </div>
 
-    <table style="width: 100%; border-collapse: collapse; margin-top: 30px;">
+    <table style="width: 100%; border-collapse: collapse; margin-top: 30px; margin-bottom: 140px;">
         <thead>
             <tr style="background-color: #f2f2f2; border-bottom: 1px solid #000;">
                 <th style="text-align: left; padding: 8px;">Référence</th>
                 <th style="text-align: left; padding: 8px;">Désignation</th>
                 <th style="text-align: center; padding: 8px;">Qté</th>
                 <th style="text-align: right; padding: 8px;">PU HT</th>
+                <th style="text-align: right; padding: 8px;">Remise</th>
                 <th style="text-align: center; padding: 8px;">TVA</th>
-                <th style="text-align: right; padding: 8px;">Total TTC</th>
+                <th style="text-align: right; padding: 8px;">Total HT</th>
             </tr>
         </thead>
         <tbody>
@@ -43,40 +90,87 @@
                     <td style="padding: 8px;">@ligne.Designation</td>
                     <td style="text-align: center; padding: 8px;">@ligne.Qte</td>
                     <td style="text-align: right; padding: 8px;">@ligne.PUHT.ToString("N3")</td>
+                    <td style="text-align: right; padding: 8px;">@ligne.Remise.ToString("N2")</td>
                     <td style="text-align: center; padding: 8px;">@ligne.TVA%</td>
-                    <td style="text-align: right; padding: 8px;">@ligne.TotalTTC.ToString("N3")</td>
+                    <td style="text-align: right; padding: 8px;">@ligne.TotalHT.ToString("N3")</td>
                 </tr>
             }
         </tbody>
     </table>
 
-    <div style="margin-top: 20px; display: flex; justify-content: flex-end;">
-        <table style="width: 30%; border-collapse: collapse;">
-            <tr>
-                <td style="padding: 5px;"><strong>Total HT:</strong></td>
-                <td style="text-align: right; padding: 5px;">@Model.TotalHT.ToString("N3")</td>
-            </tr>
-            <tr>
-                <td style="padding: 5px;"><strong>Total TVA:</strong></td>
-                <td style="text-align: right; padding: 5px;">@Model.TotalTVA.ToString("N3")</td>
-            </tr>
-            <tr>
-                <td style="padding: 5px;"><strong>Droit de Timbre:</strong></td>
-                <td style="text-align: right; padding: 5px;">@Model.Timbre.ToString("N3")</td>
-            </tr>
-            <tr style="background-color: #f2f2f2; font-weight: bold;">
-                <td style="padding: 5px;">NET À PAYER:</td>
-                <td style="text-align: right; padding: 5px;">@Model.NetAPayer.ToString("N3") DT</td>
-            </tr>
-        </table>
+    <!-- Deux tableaux de totaux: positionnés en absolu à gauche et à droite -->
+    <div style="position: relative; margin-top: 20px; height: 120px;">
+        <!-- Tableau gauche -->
+        <div style="position: absolute; left: 0; top: 0; width: 30%; min-width: 220px;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="background-color: #f2f2f2;">
+                    <td style="padding: 5px;"><strong>TVA</strong></td>
+                    <td style="padding: 5px;"><strong>Base</strong></td>
+                    <td style="padding: 5px;"><strong>Montant</strong></td>
+                </tr>
+                <tr style="padding: 5px; background-color: #f2f2f2;">
+                    <td><strong>7</strong></td>
+                    <td style="text-align: right; padding: 5px;">@Model.Tva7.ToString("N3")</td>
+                    <td style="text-align: right; padding: 5px;">@Model.TotalTva7.ToString("N3")</td>
+                </tr>
+                <tr style="padding: 5px; background-color: #f2f2f2;">
+                    <td><strong>19</strong></td>
+                    <td style="text-align: right; padding: 5px;">@Model.Tva19.ToString("N3")</td>
+                    <td style="text-align: right; padding: 5px;">@Model.TotalTva19.ToString("N3")</td>
+                </tr>
+                <tr style="background-color: #f2f2f2;">
+                    <td style="padding: 5px;"><strong>Total</strong></td>
+                    <td style="text-align: right; padding: 5px;"> @Model.SommeTauxTva.ToString("N3")</td>
+                    <td style="text-align: right; padding: 5px;">@Model.TotalTVA.ToString("N3")</td>
+                </tr>
+                
+            </table>
+        </div>
+
+
+        <!-- Tableau droit -->
+        <div style="position: absolute; right: 0; top: 0; width: 30%; min-width: 220px;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 5px;"><strong>Total HT:</strong></td>
+                    <td style="text-align: right; padding: 5px;">@Model.TotalHT.ToString("N3")</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;"><strong>Remise:</strong></td>
+                    <td style="text-align: right; padding: 5px;">@Model.TotalRemise.ToString("N3")</td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;"><strong>Total TVA:</strong></td>
+                    <td style="text-align: right; padding: 5px;">@Model.TotalTVA.ToString("N3")</td>
+                </tr>
+                @if (Model != null && Model.TypeDocument == TypeDocument.FCT)
+                {
+                    <tr>
+                        <td style="padding: 5px;"><strong>Droit de Timbre:</strong></td>
+                        <td style="text-align: right; padding: 5px;">@Model.Timbre.ToString("N3")</td>
+                    </tr>
+                }
+                <tr style="background-color: #f2f2f2; font-weight: bold;">
+                    <td style="padding: 5px;">NET À PAYER:</td>
+                    <td style="text-align: right; padding: 5px;">@Model.NetAPayer.ToString("N3") DT</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+     <div style="margin-top: 30px; font-style: italic;">
+            Arrêté la présente facture à la somme de : <br />
+            <strong>@Model.MontantEnLettres</strong>
+        </div>
+    
+</div>
+
+    <div style="position: absolute; bottom:0; padding-bottom:120px; padding-left:20px">
+       
+
+        <div>
+            <p><strong>Cachet et signature</strong></p>
+        </div>
     </div>
 
-    <div style="margin-top: 30px; font-style: italic;">
-        Arrêté la présente facture à la somme de : <br />
-        <strong>@Model.MontantEnLettres</strong>
-    </div>
-
-    <div style="margin-top: 50px; text-align: right; padding-right: 50px;">
-        <p>Cachet et signature</p>
-    </div>
+    
 </div>
