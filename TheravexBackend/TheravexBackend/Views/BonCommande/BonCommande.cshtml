@@ -1,0 +1,145 @@
+﻿@using TheravexBackend.Models
+@using TheravexBackend.DTOs
+@model BonCommandeViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Bon de commande</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; font-size: 12px; color: #000;">
+
+    <!-- ================= HEADER ================= -->
+    <table style="width:100%; border-collapse:collapse;">
+        <tr>
+            <!-- LEFT -->
+            <td style="width:70%; vertical-align:top;">
+                <img src="@(Url.Content("Images/logo.png"))" alt="Theravex logo" style="height:64px; width:auto; display:block; margin:0;" />
+                <div style="margin-top: 6px;"></div>
+                <strong>LABORATOIRES THERAVEX</strong><br />
+                MF: 1940793/J/A/M/000<br />
+                Adresse: Route Saltnia - 3000 Sfax - Tunisie<br />
+                Téléphone: 94 610 375
+            </td>
+            <!-- RIGHT -->
+            <td style="width:30%;  text-align:left; vertical-align:top;">
+                <div style="margin-top: 70px;"></div>
+                <strong> @Model.FournisseurNom</strong><br />
+                MF: <br />
+                Adresse: @Model.FournisseurAdresse<br />
+                Téléphone: @Model.FournisseurTel
+            </td>
+        </tr>
+    </table>
+
+    <hr style="border:1px solid #000; margin:10px 0;" />
+
+    <!-- ================= TITLE ================= -->
+    <table style="width:100%; margin-bottom:15px;">
+        <tr>
+            <td style="vertical-align:top;">
+                
+                <strong>Bon de commande N° : @Model.Numero</strong><br />
+
+                Date : @Model.Date.ToString("dd/MM/yyyy")
+            </td>
+        </tr>
+    </table>
+
+    <!-- ================= CLIENT ================= -->
+   
+
+    <!-- ================= LIGNES ================= -->
+    <table style="width:100%; border-collapse:collapse; margin-bottom:25px;">
+        <thead>
+            <tr style="border-bottom:1px solid #000;">
+                <th style="text-align:left; padding:6px;">Référence</th>
+                <th style="text-align:left; padding:6px;">Désignation</th>
+                <th style="text-align:center; padding:6px;">Qté</th>
+                <th style="text-align:right; padding:6px;">PU HT</th>
+                <th style="text-align:center; padding:6px;">TVA</th>
+                <th style="text-align:right; padding:6px;">Total HT</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ligne in Model.Lignes)
+            {
+            <tr style="border-bottom:1px solid #ddd;">
+                <td style="padding:6px;">@ligne.Reference</td>
+                <td style="padding:6px;">@ligne.Designation</td>
+                <td style="text-align:center; padding:6px;">@ligne.Qte</td>
+                <td style="text-align:right; padding:6px;">@ligne.PUHT.ToString("N3")</td>
+                <td style="text-align:center; padding:6px;">@($"{ligne.TVA}%")</td>
+                <td style="text-align:right; padding:6px;">@ligne.TotalHT.ToString("N3")</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- ================= TOTALS ================= -->
+    <table style="width:100%; margin-bottom:20px;">
+        <tr>
+            <!-- TVA -->
+            <td style="width:40%; vertical-align:top;">
+                <table style="width:100%; border-collapse:collapse;">
+                    <tr style="background:#f2f2f2;">
+                        <th>TVA</th>
+                        <th>Base</th>
+                        <th>Montant</th>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td style="text-align:right;">@Model.Tva7.ToString("N3")</td>
+                        <td style="text-align:right;">@Model.TotalTva7.ToString("N3")</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td style="text-align:right;">@Model.Tva19.ToString("N3")</td>
+                        <td style="text-align:right;">@Model.TotalTva19.ToString("N3")</td>
+                    </tr>
+                    <tr style="font-weight:bold;">
+                        <td>Total</td>
+                        <td style="text-align:right;">@Model.SommeTauxTva.ToString("N3")</td>
+                        <td style="text-align:right;">@Model.TotalTVA.ToString("N3")</td>
+                    </tr>
+                </table>
+            </td>
+
+            <td style="width:20%;"></td>
+
+            <!-- RESUME -->
+            <td style="width:40%; vertical-align:top;">
+                <table style="width:100%;">
+                    <tr>
+                        <td>Total HT:</td>
+                        <td style="text-align:right;">@Model.TotalHT.ToString("N3")</td>
+                    </tr>
+                    <tr>
+                        <td>Total TVA:</td>
+                        <td style="text-align:right;">@Model.TotalTVA.ToString("N3")</td>
+                    </tr>
+
+                    <tr style="background:#f2f2f2; font-weight:bold;">
+                        <td>NET À PAYER:</td>
+                        <td style="text-align:right;">@Model.NetAPayer.ToString("N3") DT</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <!-- ================= FOOTER ================= -->
+
+
+    <div style="position: absolute; bottom:0; padding-bottom:120px; padding-left:20px">
+
+
+        <div>
+            <p><strong>Cachet et signature</strong></p>
+        </div>
+    </div>
+
+</body>
+</html>

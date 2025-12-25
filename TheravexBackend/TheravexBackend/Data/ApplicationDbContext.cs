@@ -13,7 +13,10 @@ namespace TheravexBackend.Data
         public DbSet<StockMouvement> StockMouvements => Set<StockMouvement>();
         public DbSet<Facture> Factures => Set<Facture>();
         public DbSet<FactureLigne> FactureLignes => Set<FactureLigne>();
+        public DbSet<BonCommande> BonCommandes => Set<BonCommande>();
+        public DbSet<BonCommandeLigne> BonCommandeLignes => Set<BonCommandeLigne>();
         public DbSet<Tva> Tvas => Set<Tva>();
+        public DbSet<TheravexBackend.Models.Fournisseur> Fournisseur { get; set; } = default!;
 
     }
 }

@@ -87,6 +87,7 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
 builder.Services.AddScoped<IRazorViewToStringRenderer, RazorViewToStringRenderer>();
+builder.Services.AddTransient<IEmailSender, SmtpEmailSender>();
 
 
 var app = builder.Build();
@@ -110,6 +111,10 @@ else
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Theravex API v1");
     });
 }
+
+app.MapSwagger();
+
+app.MapControllers();
 
 await SeedRoles(app.Services);
 

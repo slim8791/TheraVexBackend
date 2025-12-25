@@ -49,7 +49,7 @@ namespace TheravexBackend.Controllers
             {
                 token,
                 expiration = DateTime.Now.AddMinutes(
-                    double.Parse(_configuration["Jwt:DurationInMinutes"]!)
+                    double.Parse(_configuration["Jwt:DurationInDays"]!)
                 )
             });
         }
@@ -89,7 +89,7 @@ namespace TheravexBackend.Controllers
                 audience: _configuration["Jwt:Audience"],
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(
-                    double.Parse(_configuration["Jwt:DurationInMinutes"]!)
+                    double.Parse(_configuration["Jwt:DurationInDays"]!)
                 ),
                 signingCredentials: creds
             );
