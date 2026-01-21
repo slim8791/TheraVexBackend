@@ -16,7 +16,10 @@ namespace TheravexBackend.Data
         public DbSet<BonCommande> BonCommandes => Set<BonCommande>();
         public DbSet<BonCommandeLigne> BonCommandeLignes => Set<BonCommandeLigne>();
         public DbSet<Tva> Tvas => Set<Tva>();
-        public DbSet<TheravexBackend.Models.Fournisseur> Fournisseur { get; set; } = default!;
-
+        public DbSet<Fournisseur> Fournisseur { get; set; } = default!;
+        public DbSet<Lot> Lot { get; set; } = default!;
+        public DbSet<Vente> Vente { get; set; } = default!;
+        public DbSet<LigneVente> LigneVente { get; set; } = default!;
+        
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheravexBackend.Data;
 
@@ -11,9 +12,11 @@ using TheravexBackend.Data;
 namespace TheravexBackend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260113232146_AddLot")]
+    partial class AddLot
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -488,36 +491,6 @@ namespace TheravexBackend.Migrations
                     b.ToTable("Fournisseur");
                 });
 
-            modelBuilder.Entity("TheravexBackend.Models.LigneVente", b =>
-                {
-                    b.Property<int>("LigneVenteId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LigneVenteId"));
-
-                    b.Property<int>("ArticleId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Discount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("LotId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SellQuantity")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("VenteId")
-                        .HasColumnType("int");
-
-                    b.HasKey("LigneVenteId");
-
-                    b.HasIndex("VenteId");
-
-                    b.ToTable("LigneVente");
-                });
-
             modelBuilder.Entity("TheravexBackend.Models.Lot", b =>
                 {
                     b.Property<int>("LotId")
@@ -535,9 +508,6 @@ namespace TheravexBackend.Migrations
                     b.Property<DateTime?>("DateProduction")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("FournisseurId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Numero")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -548,8 +518,6 @@ namespace TheravexBackend.Migrations
                     b.HasKey("LotId");
 
                     b.HasIndex("ArticleId");
-
-                    b.HasIndex("FournisseurId");
 
                     b.ToTable("Lot");
                 });
@@ -602,25 +570,6 @@ namespace TheravexBackend.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tvas");
-                });
-
-            modelBuilder.Entity("TheravexBackend.Models.Vente", b =>
-                {
-                    b.Property<int>("VenteId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VenteId"));
-
-                    b.Property<int>("ClientId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("VenteId");
-
-                    b.ToTable("Vente");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -745,28 +694,13 @@ namespace TheravexBackend.Migrations
                     b.Navigation("Facture");
                 });
 
-            modelBuilder.Entity("TheravexBackend.Models.LigneVente", b =>
-                {
-                    b.HasOne("TheravexBackend.Models.Vente", "Vente")
-                        .WithMany("Lines")
-                        .HasForeignKey("VenteId");
-
-                    b.Navigation("Vente");
-                });
-
             modelBuilder.Entity("TheravexBackend.Models.Lot", b =>
                 {
                     b.HasOne("TheravexBackend.Models.Article", "Article")
                         .WithMany("Lots")
                         .HasForeignKey("ArticleId");
 
-                    b.HasOne("TheravexBackend.Models.Fournisseur", "Fournisseur")
-                        .WithMany()
-                        .HasForeignKey("FournisseurId");
-
                     b.Navigation("Article");
-
-                    b.Navigation("Fournisseur");
                 });
 
             modelBuilder.Entity("TheravexBackend.Models.StockMouvement", b =>
@@ -793,11 +727,6 @@ namespace TheravexBackend.Migrations
             modelBuilder.Entity("TheravexBackend.Models.Facture", b =>
                 {
                     b.Navigation("Lignes");
-                });
-
-            modelBuilder.Entity("TheravexBackend.Models.Vente", b =>
-                {
-                    b.Navigation("Lines");
                 });
 #pragma warning restore 612, 618
         }

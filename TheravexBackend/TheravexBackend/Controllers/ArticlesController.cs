@@ -20,7 +20,25 @@ namespace TheravexBackend.Controllers
 
         [HttpGet]
         public async Task<IActionResult> Get()
-            => Ok(await _context.Articles.ToListAsync());
+        {
+            var articles = await _context.Articles
+                .Include(a => a.Tva)
+                .Include(b => b.Lots)
+                .ToListAsync();
+            return Ok(articles);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var articles = await _context.Articles
+                .Where(a => a.Id == id)
+                .Include(a => a.Tva)
+                .Include(a => a.Lots)
+                .ToListAsync();
+            return Ok(articles);
+        }
+
 
         [HttpPost]
         [Authorize(Roles = "Admin")]

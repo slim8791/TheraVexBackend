@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text;
+using System.Text.Json.Serialization;
 using TheravexBackend.Data;
 using TheravexBackend.Models;
 using TheravexBackend.Services;
@@ -88,6 +89,16 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
 builder.Services.AddScoped<IRazorViewToStringRenderer, RazorViewToStringRenderer>();
 builder.Services.AddTransient<IEmailSender, SmtpEmailSender>();
+
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        // Prevent cycle exceptions by ignoring cyclical references
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        // optional: skip nulls in responses
+        options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+    });
 
 
 var app = builder.Build();
