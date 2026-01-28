@@ -27,7 +27,7 @@ public class FacturesController : ControllerBase
 
     // ---------------- CREATE FACTURE ----------------
     [HttpPost]
-    public async Task<IActionResult> Create(FacturePdfDto dto)
+    public async Task<ActionResult<FacturePdfDto>> Create(FacturePdfDto dto)
     {
         using var transaction = await _context.Database.BeginTransactionAsync();
         var lastDocument = _context.Factures.Where(d => d.TypeDocument == dto.TypeDocument).OrderByDescending(f => f.Numero).FirstOrDefault();
@@ -36,7 +36,7 @@ public class FacturesController : ControllerBase
         {
             var facture = new Facture
             {
-                ClientId = int.Parse(dto.Client),
+                ClientId = dto.ClientId,
                 Numero = int.Parse(numDoc),
                 FullNumber = $"{dto.TypeDocument}-{numDoc}-{DateTime.Now:yyyy}",
                 TypeDocument = dto.TypeDocument,
@@ -50,16 +50,14 @@ public class FacturesController : ControllerBase
             foreach (var l in dto.Lignes)
             {
                 var article = await _context.Articles.Include(a => a.Tva)
-                    .FirstOrDefaultAsync(a => a.Id == int.Parse(l.Article));
+                    .FirstOrDefaultAsync(a => a.Id == l.ArticleId);
 
                 if (article == null || article.Stock < l.Quantite)
-                    throw new Exception($"Stock insuffisant pour {int.Parse(l.Article)}");
+                    throw new Exception($"Stock insuffisant pour {l.ArticleId}");
 
                 decimal prix = l.PrixUnitaire != 0 ? l.PrixUnitaire : article.PrixVente;
                 decimal ligneHT = l.Quantite * prix * (1 - l.Remise / 100);
                 decimal ligneTVA = ligneHT * (article.Tva.Taux / 100);
-
-                article.Stock -= l.Quantite;
 
                 facture.Lignes.Add(new FactureLigne
                 {
